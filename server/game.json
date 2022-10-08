@@ -1,0 +1,29 @@
+{
+  "id": "7812yrhf87rehf78h284fh6gfhwe8fg5",
+  "data": [
+    {
+      "subject": "MWD-1123",
+      "performance": 30,
+      "developmentEase": 20,
+      "security": 10,
+      "maintanance": 20,
+      "customerEffect": 15
+    },
+    {
+      "subject": "MWD-1323",
+      "performance": 35,
+      "developmentEase": 20,
+      "security": 10,
+      "maintanance": 20,
+      "customerEffect": 10
+    },
+    {
+      "subject": "MWD-2123",
+      "performance": 10,
+      "developmentEase": 20,
+      "security": 10,
+      "maintanance": 20,
+      "customerEffect": 35
+    }
+  ]
+}
