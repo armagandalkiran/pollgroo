@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
+import { STATE } from "../pages/Game/models/enums";
 
-const usePollData = () => {
-  const [data, setData] = useState([]);
+const usePollData = (id?: string) => {
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/game")
+    fetch(`http://localhost:5000/game/${id}?offset=1&limit=1`)
       .then((res) => res.json())
-      .then(({ data }) => setData(data));
-  }, []);
+      .then((res) => setData(res));
+  }, [id]);
 
-  if (data.length > 0) return data;
-  else return "loading";
+  if (!Object.keys(data).length) return STATE.LOADING;
+  else return data;
 };
 
 export default usePollData;

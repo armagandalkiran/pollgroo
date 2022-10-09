@@ -1,6 +1,6 @@
-import PollTable from "../../components/poll-table/pollTable";
+import { PollTable } from "../../components/poll-table";
 
-const Game = () => {
+export const Game = () => {
   return (
     <>
       <div>Game</div>
@@ -8,5 +8,3 @@ const Game = () => {
     </>
   );
 };
-
-export default Game;
