@@ -1,9 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {
-  ABORT,
-  APPROVE,
-  POPUP_MESSAGE,
-} from "../../../Game/models/constants";
+import { ABORT, APPROVE, START_GAME_POPUP_MESSAGE } from "../../../Panel/models/constants";
 
 interface showPopup {
   id: string;
@@ -47,7 +43,7 @@ export const StartGamePopup = ({
           padding: "10px",
         }}
       >
-        <h3>{POPUP_MESSAGE}</h3>
+        <h3>{START_GAME_POPUP_MESSAGE}</h3>
         <p>{window.location.href + "game/" + gameId}</p>
         <button>{ABORT}</button>
         <button onClick={handleApprove}>{APPROVE}</button>
