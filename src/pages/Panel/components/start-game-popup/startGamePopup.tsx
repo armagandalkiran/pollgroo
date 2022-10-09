@@ -3,7 +3,7 @@ import {
   ABORT,
   APPROVE,
   POPUP_MESSAGE,
-} from "../../pages/Game/models/constants";
+} from "../../../Game/models/constants";
 
 interface showPopup {
   id: string;

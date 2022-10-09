@@ -1,9 +1,9 @@
-import usePollData from "../../hooks/usePollData";
-import { STATE } from "../../pages/Game/models/enums";
+import usePollData from "../../../../hooks/usePollData";
+import { STATE } from "../../models/enums";
 import { PollElement } from "../poll-element";
 import { useParams } from "react-router-dom";
-import { LOADING_MESSAGE } from "../../pages/Game/models/constants";
-import { PollData, PollDataType } from "../../pages/Game/models/interfaces";
+import { LOADING_MESSAGE } from "../../models/constants";
+import { PollData, PollDataType } from "../../models/interfaces";
 
 export const PollTable = () => {
   const { gameId } = useParams();

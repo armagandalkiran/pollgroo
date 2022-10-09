@@ -1,4 +1,4 @@
-import { PollTable } from "../../components/poll-table";
+import { PollTable } from "./components/poll-table";
 
 export const Game = () => {
   return (

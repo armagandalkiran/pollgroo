@@ -1,4 +1,4 @@
-import { PollDataType } from "../../pages/Game/models/interfaces";
+import { PollDataType } from "../../models/interfaces";
 
 interface ElementProps {
   data: PollDataType;
