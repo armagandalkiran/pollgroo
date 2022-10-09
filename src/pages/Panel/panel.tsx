@@ -1,4 +1,4 @@
-import { PanelTable } from "../../components/panel-table";
+import { PanelTable } from "./components/panel-table";
 
 export const Panel = () => {
   return (
