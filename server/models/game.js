@@ -11,6 +11,13 @@ const GameSchema = new mongoose.Schema(
         of: Number,
       },
     ],
+    result: [
+      {
+        type: Map,
+        of: Array,
+      },
+    ],
+    isStarted: { type: Boolean, default: false },
   },
   { timestamps: true, versionKey: false }
 );

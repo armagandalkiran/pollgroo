@@ -5,7 +5,7 @@ const verifyToken = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, process.env.AUTH_KEY, (err, user) => {
-      err && res.status(403).json("Geçersiz token !");
+      if (err) return res.status(403).json("Geçersiz token !");
       req.user = user;
       next();
     });
@@ -16,7 +16,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
-    if (req.user.id === req.params.id || req.user.userType) {
+    if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {
       res.status(403).json("Giriş yapmanız gerekli !");
