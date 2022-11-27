@@ -15,12 +15,13 @@ interface ResponseModelObject {
 
 const usePollData = (id?: string) => {
   const [data, setData] = useState<ResponseModelObject>({});
+  const token = localStorage.getItem("authorization");
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(
-        `http://localhost:5000/game/${id}?offset=1&limit=1`
-      );
+      const response = await fetch(`http://localhost:5000/api/games/${id}`, {
+        headers: { authorization: `bearer ${token}` },
+      });
       const responseResult = await response.json();
       if (response.status === 404) {
         setData({
@@ -44,8 +45,10 @@ const usePollData = (id?: string) => {
         });
       }
     };
-    getData();
-  }, [id]);
+    if (token) {
+      getData();
+    }
+  }, [id, token]);
 
   return data;
 };

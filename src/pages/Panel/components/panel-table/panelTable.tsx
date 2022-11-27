@@ -7,24 +7,26 @@ import { STATE } from "../../models/enums";
 
 export const PanelTable = () => {
   const [showPopup, setShowpopup] = useState({ id: "", status: false });
-  const panelData = usePanelData();
+  const panelData: any = usePanelData();
 
   const handleStart = (id: string) => {
-    setShowpopup({ id, status: true });
+    return () => setShowpopup({ id, status: true });
   };
 
   if (panelData === STATE.LOADING) return <div>{LOADING_MESSAGE}</div>;
   else {
     return (
       <div>
-        {panelData.map((item: PanelDataItem) => {
+        {panelData.games.map((item: PanelDataItem) => {
           return (
-            <div key={item.id}>
-              <div>{item.id}</div>
-              <button onClick={() => handleStart(item.id)}>{START}</button>
-              {showPopup.id === item.id && showPopup.status && (
-                <StartGamePopup setShowPopup={setShowpopup} gameId={item.id} />
-              )}
+            <div key={item.gameId}>
+              <div>{item.gameId}</div>
+              <button onClick={handleStart(item.gameId)}>{START}</button>
+              <StartGamePopup
+                showPopup={showPopup}
+                setShowPopup={setShowpopup}
+                gameId={item.gameId}
+              />
             </div>
           );
         })}

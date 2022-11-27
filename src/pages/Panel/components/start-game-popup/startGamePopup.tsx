@@ -1,21 +1,30 @@
 import { useNavigate } from "react-router-dom";
-import { ABORT, APPROVE, START_GAME_POPUP_MESSAGE } from "../../../Panel/models/constants";
+import {
+  ABORT,
+  APPROVE,
+  START_GAME_POPUP_MESSAGE,
+} from "../../../Panel/models/constants";
 
-interface showPopup {
+interface ShowPopup {
   id: string;
   status: boolean;
 }
 
 interface StartGamePopupProps {
-  setShowPopup: (value: showPopup) => void;
+  showPopup: ShowPopup;
+  setShowPopup: (value: ShowPopup) => void;
   gameId: string;
 }
 
 export const StartGamePopup = ({
+  showPopup,
   setShowPopup,
   gameId,
 }: StartGamePopupProps) => {
   const navigate = useNavigate();
+  if (!showPopup.status && showPopup.id !== gameId) {
+    return null;
+  }
 
   const handleApprove = () => {
     navigate(`/game/${gameId}`);
